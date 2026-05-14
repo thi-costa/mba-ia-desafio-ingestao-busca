@@ -107,6 +107,7 @@ select = [
     "ARG",  # flake8-unused-arguments (avisos de argumentos não usados)
     "PT",   # flake8-pytest-style (boas práticas no pytest)
     "N",    # pep8-naming (padrões de nomenclatura)
+    "SIM", # flake8-simplify (Dicas para simplificar o código)
 ]
 
 # Regras que você quer ignorar (ex: conflitos com o formatador)
