@@ -24,6 +24,27 @@ $ uv add -r requirements.txt
 $ uv sync
 ```
 
+## Configure as variáveis de ambiente corretamente
+Crie um arquivo .env e o preencha corretamente. É importante que o provider que você use para o embeddings seja o mesma para ingestão e o chat (busca vetorial do RAG). Pois as dimensões do embeddings tem um tamanho de vetorização específico.
+
+Segue exemplo do .env:
+
+```plain
+GOOGLE_API_KEY="A..."
+GOOGLE_EMBEDDING_MODEL='models/gemini-embedding-2'
+GOOGLE_CHAT_MODEL="models/gemini-2.5-flash"
+ACTIVE_PROVIDER="gemini"
+
+OPENAI_API_KEY="sk-..."
+OPENAI_EMBEDDING_MODEL='text-embedding-3-small'
+OPENAI_CHAT_MODEL="gpt-5-nano"
+
+DATABASE_URL="postgresql+psycopg://postgres:postgres@localhost:5432/rag"
+PG_VECTOR_COLLECTION_NAME="rag"
+
+PDF_PATH="document.pdf"
+```
+
 ## Execução do projeto
 
 1. Subir o banco de dados
@@ -41,5 +62,15 @@ $ python3 src/ingest.py
 $ python3 src/chat.py
 ```
 
+Alguns desses comandos estão documentados no Makefile, para ajudar na execução do projeto.
+
 ## Exemplos de utilização
-<!-- Adicionar após a solução estar desenvolvida. -->
+* Ingestão de dados:
+![alt](docs/test_google_ingest.png)
+
+* Conversação com modelos do Gemini:
+![alt](docs/test_google_chat.png)
+
+* Conversação com modelos do OpenAI:
+![alt](docs/test_open_ai_chat.png)
+
