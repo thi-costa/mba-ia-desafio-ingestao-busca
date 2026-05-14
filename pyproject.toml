@@ -81,3 +81,49 @@ dependencies = [
     "yarl==1.20.1",
     "zstandard==0.24.0",
 ]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.12",
+]
+
+[tool.ruff]
+# Define a versão mínima do Python suportada
+target-version = "py311"
+# Largura da linha (mesmo padrão do Black)
+line-length = 128
+
+[tool.ruff.lint]
+# Seleção de regras
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes (erros de lógica/importação)
+    "I",    # isort (ordenação de imports)
+    "B",    # flake8-bugbear (design de código e bugs comuns)
+    "C4",   # flake8-comprehensions (melhora list/dict comprehensions)
+    "UP",   # pyupgrade (sugere sintaxe de versões novas do Python)
+    "ARG",  # flake8-unused-arguments (avisos de argumentos não usados)
+    "PT",   # flake8-pytest-style (boas práticas no pytest)
+    "N",    # pep8-naming (padrões de nomenclatura)
+]
+
+# Regras que você quer ignorar (ex: conflitos com o formatador)
+ignore = [
+    "E501", # Ignora linha muito longa (deixa o formatador cuidar disso)
+]
+
+# Permitir autofix para quase tudo, exceto o que for perigoso
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.lint.isort]
+# Faz o isort agrupar os imports de forma mais limpa
+combine-as-imports = true
+lines-after-imports = 2
+
+[tool.ruff.format]
+# Configurações do formatador (estilo Black)
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
