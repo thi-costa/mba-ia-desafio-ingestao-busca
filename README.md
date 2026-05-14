@@ -27,13 +27,15 @@ $ uv sync
 ## Configure as variáveis de ambiente corretamente
 Crie um arquivo .env e o preencha corretamente. É importante que o provider que você use para o embeddings seja o mesma para ingestão e o chat (busca vetorial do RAG). Pois as dimensões do embeddings tem um tamanho de vetorização específico.
 
+Especifique o provider usado para a ingestão de dados para que o chat funcione bem na variável `ACTIVE_PROVIDER`.
+
 Segue exemplo do .env:
 
 ```plain
 GOOGLE_API_KEY="A..."
 GOOGLE_EMBEDDING_MODEL='models/gemini-embedding-2'
 GOOGLE_CHAT_MODEL="models/gemini-2.5-flash"
-ACTIVE_PROVIDER="gemini"
+ACTIVE_PROVIDER="gemini" # "gemini" ou "openai"
 
 OPENAI_API_KEY="sk-..."
 OPENAI_EMBEDDING_MODEL='text-embedding-3-small'
