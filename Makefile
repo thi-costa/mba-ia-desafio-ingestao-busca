@@ -12,7 +12,7 @@ help: ## Exibe esta mensagem de ajuda
 install: ## Cria o ambiente virtual e instala as dependências
 	@if command -v uv > /dev/null; then \
 		echo "Instalando com uv..."; \
-		uv sync; \
+		uv sync --all-groups; \
 	else \
 		echo "Instalando com venv/pip..."; \
 		$(PYTHON) -m venv $(VENV); \
